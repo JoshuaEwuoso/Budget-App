@@ -1,9 +1,19 @@
 const express = require("express");
-const transaction = express.Router();
-const transactionArray = require("../models/transaction");
+const transactions = express.Router();
+const transactionArray = require("../models/transactions");
 
-transaction.get("/", (request, response) => {
+transactions.get("/", (request, response) => {
     response.json(transactionArray);
 });
 
-module.exports = transaction;
+transactions.get("/:id", (request, response) => {
+    const { id } = request.params;
+    if(transactionArray[id]){
+        response.send(transactionArray[id]);
+    } else {
+        response.redirect("*");
+    }
+});
+
+
+module.exports = transactions;

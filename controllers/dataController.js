@@ -20,13 +20,11 @@ transactions.put("/:id", async (request, response) => {
     transacArray[id] = request.body;
     response.status(200).json(transacArray[id]);
   });
-  
-  
+
 transactions.post("/", (request, response) => {
     const updatedArray = transacArray.push(request.body);
     response.json(transacArray[updatedArray - 1]);
   });
-  
 
 transactions.delete("/:id", (request, response) => {
     const { id } = request.params;

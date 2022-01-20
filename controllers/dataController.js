@@ -3,7 +3,7 @@ const transactions = express.Router();
 const transacArray = require("../models/transactions");
 
 transactions.get("/", (request, response) => {
-    response.json(transactionArray);
+    response.json(transacArray);
 });
 
 transactions.get("/:id", (request, response) => {

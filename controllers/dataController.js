@@ -6,19 +6,19 @@ transactions.get("/", (request, response) => {
     response.json(transacArray);
 });
 
-transactions.get("/:id", (request, response) => {
-    const { id } = request.params;
-    if(transacArray[id]){
-        response.json(transacArray[id]);
+transactions.get("/:index", (request, response) => {
+    const { index } = request.params;
+    if(transacArray[index]){
+        response.json(transacArray[index]);
     } else {
         response.redirect("*");
     }
 });
 
-transactions.put("/:id", async (request, response) => {
-    const { id } = request.params;
-    transacArray[id] = request.body;
-    response.status(200).json(transacArray[id]);
+transactions.put("/:index", async (request, response) => {
+    const { index } = request.params;
+    transacArray[index] = request.body;
+    response.status(200).json(transacArray[index]);
   });
 
 transactions.post("/", (request, response) => {
@@ -26,9 +26,9 @@ transactions.post("/", (request, response) => {
     response.json(transacArray[updatedArray - 1]);
   });
 
-transactions.delete("/:id", (request, response) => {
-    const { id } = request.params;
-    const deletedTransac = transacArray.splice(id, 1);
+transactions.delete("/:index", (request, response) => {
+    const { index } = request.params;
+    const deletedTransac = transacArray.splice(index, 1);
     response.status(200).json(deletedTransac);
   });
 

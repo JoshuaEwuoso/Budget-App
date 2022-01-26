@@ -22,7 +22,7 @@ transactions.put("/:index", async (request, response) => {
   });
 
 transactions.post("/", (request, response) => {
-    const updatedArray = transacArray.push(request.body);
+    const updatedArray = transacArray.unshift(request.body);
     response.json(transacArray[updatedArray - 1]);
   });
 

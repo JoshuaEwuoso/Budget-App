@@ -20,6 +20,7 @@ transactions.put("/:index", async (request, response) => {
     transacArray[index] = request.body;
     response.status(200).json(transacArray[index]);
   });
+  
 
 transactions.post("/", (request, response) => {
     const updatedArray = transacArray.unshift(request.body);
